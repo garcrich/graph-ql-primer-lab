@@ -1,0 +1,59 @@
+type VideoGame {
+  id: ID!
+  title: String!
+  yearReleased: Int!
+  genre: String!
+  publisher: String!
+  price: Float!
+  platform: String!
+}
+
+type VideoGameConnection {
+  games: [VideoGame!]!
+  totalCount: Int!
+  totalPages: Int!
+  currentPage: Int!
+}
+
+
+
+type Query {
+  videoGames(
+    limit: Int, 
+    offset: Int, 
+    title: String,
+    yearReleased: Int,
+    genre: String,
+    publisher: String,
+    minPrice: Int,
+    maxPrice: Int,
+    platform: String,
+  ): VideoGameConnection
+
+  videoGame(id: ID!): VideoGame
+}
+
+input CreateVideoGameInput {
+  title: String!
+  yearReleased: Int!
+  genre: String!
+  publisher: String!
+  price: Float!
+  platform: String!
+}
+
+input UpdateVideoGameInput {
+  id: ID!
+  title: String
+  yearReleased: Int
+  genre: String
+  publisher: String
+  price: Float
+  platform: String
+}
+
+type Mutation {
+  createVideoGame(createVideoGameInput: CreateVideoGameInput!): VideoGame!
+  updateVideoGame(updateVideoGameInput: UpdateVideoGameInput!): VideoGame!
+  deleteVideoGame(id: ID!): Boolean!
+}

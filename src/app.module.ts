@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { GraphqlModule } from './graphql/graphql.module';
-import { PostsModule } from './posts/posts.module';
+import { VideoGamesModule } from './video-games/video-games.module';
 
 @Module({
-  imports: [GraphqlModule, PostsModule],
+  imports: [GraphqlModule, VideoGamesModule],
   controllers: [],
   providers: [AppService],
 })
