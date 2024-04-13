@@ -7,7 +7,9 @@ import { join } from 'path'
     imports: [
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
-            typePaths: ['./**/*.graphql']
+            typePaths: ['./**/*.graphql'],
+            playground: true, // Enables the GraphQL Playground
+            introspection: true, // Enables introspection query which is necessary for Playground
         }),
     ]
 })
