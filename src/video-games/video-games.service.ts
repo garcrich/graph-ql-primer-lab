@@ -73,13 +73,16 @@ export class VideoGamesService {
     return updatedGame;
   }
 
-  delete(id: string): boolean {
+  delete(id: string): VideoGame {
     const gameIndex = this.videoGames.findIndex(game => game.id === id);
     if (gameIndex === -1) {
       throw new NotFoundException(`Game with ID "${id}" not found`);
+
     }
-    this.videoGames.splice(gameIndex, 1);
-    return true;
+    const [deletedGame] =  this.videoGames.splice(gameIndex, 1);
+
+
+    return deletedGame;
   }
 
   private _filterGames({ title, yearReleased, genre, publisher, maxPrice, minPrice, platform }: queryType): VideoGame[] {

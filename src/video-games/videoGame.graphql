@@ -15,8 +15,6 @@ type VideoGameConnection {
   currentPage: Int!
 }
 
-
-
 type Query {
   videoGames(
     limit: Int, 
@@ -55,5 +53,5 @@ input UpdateVideoGameInput {
 type Mutation {
   createVideoGame(createVideoGameInput: CreateVideoGameInput!): VideoGame!
   updateVideoGame(updateVideoGameInput: UpdateVideoGameInput!): VideoGame!
-  deleteVideoGame(id: ID!): Boolean!
+  deleteVideoGame(id: ID!): VideoGame!
 }

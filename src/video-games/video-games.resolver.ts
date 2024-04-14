@@ -46,8 +46,8 @@ export class VideoGamesResolver {
     return await this.videoGamesService.update(updateVideoGameInput.id, updateVideoGameInput);
   }
 
-  @Mutation(returns => Boolean)
-  async deleteVideoGame(@Args('id', { type: () => String }) id: string): Promise<boolean> {
+  @Mutation(returns => 'VideoGame')
+  async deleteVideoGame(@Args('id', { type: () => String }) id: string): Promise<VideoGame> {
     return await this.videoGamesService.delete(id);
   }
 }
